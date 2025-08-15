@@ -20,7 +20,7 @@ enum AccountType: String, CaseIterable, Codable {
         case .checking:
             return "banknote"
         case .savings:
-            return "piggybank"
+            return "dollarsign.circle"
         case .creditCard:
             return "creditcard"
         }
@@ -73,5 +73,50 @@ class Account {
         }
         
         return Color(.sRGB, red: colorArray[0], green: colorArray[1], blue: colorArray[2], opacity: colorArray[3])
+    }
+}
+
+// MARK: - Transactions
+
+enum TransactionType: String, CaseIterable, Codable {
+    case expense = "Expense"
+    case income = "Income"
+    case transfer = "Transfer"
+}
+
+@Model
+class Transaction {
+    var id: UUID
+    var title: String
+    var details: String?
+    var amount: Double
+    var date: Date
+    var type: TransactionType
+    
+    // For expense/income, use `account`.
+    // For transfer, use `fromAccount` and `toAccount`.
+    var account: Account?
+    var fromAccount: Account?
+    var toAccount: Account?
+    
+    init(
+        title: String,
+        details: String? = nil,
+        amount: Double,
+        date: Date = .now,
+        type: TransactionType,
+        account: Account? = nil,
+        fromAccount: Account? = nil,
+        toAccount: Account? = nil
+    ) {
+        self.id = UUID()
+        self.title = title
+        self.details = details
+        self.amount = amount
+        self.date = date
+        self.type = type
+        self.account = account
+        self.fromAccount = fromAccount
+        self.toAccount = toAccount
     }
 }

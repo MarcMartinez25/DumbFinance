@@ -14,6 +14,6 @@ struct financefriendApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: Account.self)
+        .modelContainer(for: [Account.self, Transaction.self])
     }
 }
