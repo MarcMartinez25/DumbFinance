@@ -1,10 +1,3 @@
-//
-//  ChecklistView.swift
-//  financefriend
-//
-//  Created by Margo Martinez on 8/3/25.
-//
-
 import SwiftUI
 
 struct ChecklistView: View {

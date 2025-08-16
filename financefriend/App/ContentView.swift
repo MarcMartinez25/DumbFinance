@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  financefriend
-//
-//  Created by Margo Martinez on 8/3/25.
-//
-
 import SwiftUI
 
 struct ContentView: View {
@@ -14,12 +7,6 @@ struct ContentView: View {
                 .tabItem {
                     Image(systemName: "chart.pie.fill")
                     Text("Overview")
-                }
-            
-            AccountsView()
-                .tabItem {
-                    Image(systemName: "creditcard.fill")
-                    Text("Accounts")
                 }
             
             TransactionsView()
